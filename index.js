@@ -34,7 +34,7 @@ const spotify = new Spotify({
 }); */
 
 bot.on("message", msg => {
-  //console.log(msg);
+  console.log(msg);
   switch (msg.type) {
     case "message":
       if (msg.channel[0] === "D" && msg.bot_id === undefined) {
@@ -53,7 +53,7 @@ bot.on("message", msg => {
             //sendMessage("test whatever");
             //findUser("UL097HRR6");
 
-            decider(res1.entities, msg.user);
+            decider(res1.entities, msg.user, msg.channel);
           });
 
         //spotifyPOSThackduke(msg.text);
@@ -203,7 +203,7 @@ function realPost(trackid) {
   });
 }
 
-function decider(jsondata, userid) {
+function decider(jsondata, userid, channelid) {
   if (!jsondata) {
     return;
   }
@@ -219,7 +219,7 @@ function decider(jsondata, userid) {
     pretext = "So sorry...";
     text =
       "I couldn't understand your request, please reach out to an organizer.";
-    sendMessage(pretext, text, color, userid);
+    sendMessage(pretext, text, color, channelid);
     return;
   }
 
