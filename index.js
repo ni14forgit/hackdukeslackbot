@@ -34,7 +34,7 @@ const spotify = new Spotify({
 }); */
 
 bot.on("message", msg => {
-  console.log(msg);
+  //console.log(msg);
   switch (msg.type) {
     case "message":
       if (msg.channel[0] === "D" && msg.bot_id === undefined) {
@@ -90,7 +90,7 @@ function spotifyGEThackduke() {
     });
 }
 
-function spotifyPOSThackduke(song_title, artist_title) {
+function spotifyPOSThackduke(song_title, artist_title, channelid) {
   spotify
     .request(createTrackURL(song_title, artist_title))
     .then(function(data) {
@@ -114,13 +114,13 @@ function spotifyPOSThackduke(song_title, artist_title) {
           "Unfortunately, we couldn't find your song on Spotify",
           "Make sure you spelt everything right! <https://open.spotify.com/playlist/1Qj5m1UhNdY25CsUTNZBiH|Check out what songs other hackers contributed!>",
           "#800080",
-          "DKNSG1WHY"
+          channelid
         );
       } else {
         var pretext = "Added " + song_title + " by " + artist_title + "!";
         var text =
           "<https://open.spotify.com/playlist/1Qj5m1UhNdY25CsUTNZBiH|Check out what songs other hackers contributed!>";
-        sendMessage(pretext, text, "#800080", "DKNSG1WHY");
+        sendMessage(pretext, text, "#800080", channelid);
         realPost(data["tracks"]["items"][0].uri);
       }
 
@@ -229,12 +229,12 @@ function decider(jsondata, userid, channelid) {
         song_title = jsondata["song_title"][0].value;
         artist_title = jsondata["artist_title"][0].value;
 
-        spotifyPOSThackduke(song_title, artist_title);
+        spotifyPOSThackduke(song_title, artist_title, channelid);
       } else {
         pretext = "Something went wrong!";
         text =
           "Make sure you typed the names of the song and artist correctly! <https://open.spotify.com/playlist/1Qj5m1UhNdY25CsUTNZBiH|Check out what songs other hackers contributed!>";
-        sendMessage(pretext, text, color);
+        sendMessage(pretext, text, color, channelid);
       }
       break;
     case "sponsors":
@@ -246,36 +246,36 @@ function decider(jsondata, userid, channelid) {
         "\n *JPMorgan Chase: * Filler Name, Filler Name" +
         "\n *Duke Department: * Thank you Duke!" +
         "\n *Spikeball, Insomnia Cookies, Peppered Popcorn*";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
       console.log("sponsor");
       break;
     case "code_of_conduct":
       pretext = "Be a good person!";
       text =
         "<https://static.mlh.io/docs/mlh-code-of-conduct.pdf|Code of Conduct>";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
       console.log("code of conduct");
       break;
     case "help":
       pretext = "What's wrong :(";
       text = "Please reach out to an organizer for any assistance!";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
       break;
     case "submit":
       pretext = "I'm so happy y'all completed your hackathon project!";
       text =
         "You can submit your amazing hackathon projects to https://hackduke.org/";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
       console.log("submit");
       break;
     case "schedule":
-      sendFile("HackDuke-FAQs.pdf", "Here's our schedule!");
+      sendFile("HackDuke-FAQs.pdf", "Here's our schedule!", channelid);
       break;
     case "finding_team":
       pretext = "We can help you find a team!";
       text =
         "Go to our *team_finding* slack channel and you'll meet other amazing hackers!";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
       break;
     case "learning":
       bot.getUsers().then(function(answer) {
@@ -294,7 +294,7 @@ function decider(jsondata, userid, channelid) {
               "",
               "I just messaged the sponsors! Hopefully someone will reach out on Slack to help you out!",
               "#800080",
-              "DKNSG1WHY"
+              channelid
             );
             return;
           }
@@ -304,25 +304,26 @@ function decider(jsondata, userid, channelid) {
     case "map":
       sendFile(
         "map_of_duke.jpg",
-        "Here's what our campus looks like, but feel free to reach out to an organizer for directions!"
+        "Here's what our campus looks like, but feel free to reach out to an organizer for directions!",
+        channelid
       );
       break;
     case "snacks":
       pretext = "Hackers need to eat too!";
       text = createSnackTimeString();
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
       break;
     case "bathroom":
       pretext = "";
       text =
         "Women's bathrooms are located at 1004, 2030, and 3981 in CIEMAS \n Men's bathrooms are located at 1004, 2030, and 3981 in CIEMAS";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
     //POTENTIALLY SEND A FILE INDICATING WHERE THE BATHROOMS ARE!
     default:
       pretext = "So sorry...";
       text =
         "I couldn't understand your request, please reach out to an organizer.";
-      sendMessage(pretext, text, color, "DKNSG1WHY");
+      sendMessage(pretext, text, color, channelid);
   }
 }
 
@@ -360,7 +361,7 @@ function sendMessage(mypretext, mytext, mycolor, channelID) {
   });
 }
 
-function sendFile(filename, title) {
+function sendFile(filename, title, channelid) {
   var newAuthOptions = {
     url: "https://slack.com/api/files.upload",
     formData: {
@@ -368,7 +369,7 @@ function sendFile(filename, title) {
       title: title,
       filename: filename,
       filetype: "auto",
-      channels: "DKNSG1WHY",
+      channels: channelid,
       file: fs.createReadStream(filename)
     }
   };
