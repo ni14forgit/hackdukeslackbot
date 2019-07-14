@@ -5,21 +5,21 @@ const fetch = require("node-fetch");
 const Spotify = require("node-spotify-api");
 const fs = require("file-system");
 
+slack_bot_token = process.env.SLACK_TOKEN;
+
 //NEED to fix, with some secret environment
 const bot = new Slackbot({
-  token: ,
+  token: slack_bot_token,
   name: "kitty"
 });
 
-slack_bot_token = ;
-
-spotify_client_id = "63f0439e693b4e49bee52f84a75c30bf";
-spotify_client_secret;
+spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
+spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 spotify_client_stringid = "1262006373";
 spotify_hackduke_playlist = "1Qj5m1UhNdY25CsUTNZBiH?si=3P5Vuhj9QRCMHN10rjwPSw";
 spotify_playlist_real = "1Qj5m1UhNdY25CsUTNZBiH";
-spotify_refresh_token
-CLIENT_TOKEN;
+spotify_refresh_token = process.env.REFRESH_TOKEN;
+CLIENT_TOKEN = process.env.WIT_TOKEN;
 
 const spotify = new Spotify({
   id: spotify_client_id,
