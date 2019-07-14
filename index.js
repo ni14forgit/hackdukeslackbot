@@ -1,3 +1,4 @@
+console.log("HI");
 const Slackbot = require("slackbots");
 const request = require("request");
 const fetch = require("node-fetch");
@@ -6,20 +7,19 @@ const fs = require("file-system");
 
 //NEED to fix, with some secret environment
 const bot = new Slackbot({
-  token: "xoxb-682456612486-682459062934-ZWwtTalWuXvxxI2TZWxFTnPC",
+  token: ,
   name: "kitty"
 });
 
-slack_bot_token = "xoxb-682456612486-682459062934-ZWwtTalWuXvxxI2TZWxFTnPC";
+slack_bot_token = ;
 
 spotify_client_id = "63f0439e693b4e49bee52f84a75c30bf";
-spotify_client_secret = "391359166daa4291a40d2c1bbaa6d7b5";
+spotify_client_secret;
 spotify_client_stringid = "1262006373";
 spotify_hackduke_playlist = "1Qj5m1UhNdY25CsUTNZBiH?si=3P5Vuhj9QRCMHN10rjwPSw";
 spotify_playlist_real = "1Qj5m1UhNdY25CsUTNZBiH";
-spotify_refresh_token =
-  "AQDdXeFoC-MRsglEpAArkD9CpJl-UlF9hshQats3OhFpjW4YcCMRoEqzDUkLILN43nrmGnX_QiDnjzIDlcA4GzmseVMnlykBmf8HdrOTo14a4vUZvmOQKijKxK6ufjuPQx7aZQ";
-CLIENT_TOKEN = "OEE5PSZEKOAOGAIPEJKHZKG7XHNNOTGG";
+spotify_refresh_token
+CLIENT_TOKEN;
 
 const spotify = new Spotify({
   id: spotify_client_id,
