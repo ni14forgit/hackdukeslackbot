@@ -52,7 +52,7 @@ bot.on("message", msg => {
 
             //sendMessage("test whatever");
             //findUser("UL097HRR6");
-
+            console.log(entities);
             decider(res1.entities, msg.user, msg.channel);
           });
 
