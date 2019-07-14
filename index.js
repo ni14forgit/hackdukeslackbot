@@ -1,4 +1,3 @@
-console.log("HI");
 const Slackbot = require("slackbots");
 const request = require("request");
 const fetch = require("node-fetch");
@@ -6,6 +5,7 @@ const Spotify = require("node-spotify-api");
 const fs = require("file-system");
 
 slack_bot_token = process.env.SLACK_TOKEN;
+console.log(slack_bot_token);
 
 //NEED to fix, with some secret environment
 const bot = new Slackbot({
