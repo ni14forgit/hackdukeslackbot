@@ -13,7 +13,7 @@ const bot = new Slackbot({
   name: "kitty"
 });
 
-console.log("is ther error here?");
+console.log("is ther error Slackbot?");
 
 spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -27,6 +27,8 @@ const spotify = new Spotify({
   id: spotify_client_id,
   secret: spotify_client_secret
 });
+
+console.log("is the error spotify?");
 
 /* bot.on("start", () => {
   const params = {
