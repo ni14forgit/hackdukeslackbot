@@ -5,15 +5,12 @@ const Spotify = require("node-spotify-api");
 const fs = require("file-system");
 
 slack_bot_token = process.env.SLACK_TOKEN;
-console.log(slack_bot_token);
 
 //NEED to fix, with some secret environment
 const bot = new Slackbot({
   token: slack_bot_token,
   name: "kitty"
 });
-
-console.log("is ther error Slackbot?");
 
 spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -27,8 +24,6 @@ const spotify = new Spotify({
   id: spotify_client_id,
   secret: spotify_client_secret
 });
-
-console.log("is the error spotify?");
 
 /* bot.on("start", () => {
   const params = {
@@ -224,7 +219,7 @@ function decider(jsondata, userid) {
     pretext = "So sorry...";
     text =
       "I couldn't understand your request, please reach out to an organizer.";
-    sendMessage(pretext, text, color, "DKNSG1WHY");
+    sendMessage(pretext, text, color, userid);
     return;
   }
 
