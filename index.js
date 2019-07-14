@@ -318,12 +318,14 @@ function decider(jsondata, userid, channelid) {
       text =
         "Women's bathrooms are located at 1004, 2030, and 3981 in CIEMAS \n Men's bathrooms are located at 1004, 2030, and 3981 in CIEMAS";
       sendMessage(pretext, text, color, channelid);
+      break;
     //POTENTIALLY SEND A FILE INDICATING WHERE THE BATHROOMS ARE!
     default:
       pretext = "So sorry...";
       text =
         "I couldn't understand your request, please reach out to an organizer.";
       sendMessage(pretext, text, color, channelid);
+      break;
   }
 }
 
