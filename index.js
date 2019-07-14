@@ -13,6 +13,8 @@ const bot = new Slackbot({
   name: "kitty"
 });
 
+console.log("is ther error here?");
+
 spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
 spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 spotify_client_stringid = "1262006373";
