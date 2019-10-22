@@ -386,31 +386,31 @@ function sendFile(filename, title, channelid) {
 }
 
 function createSnackTimeString() {
-  var breakfast = new Date("2019/10/02 09:00:00");
   var lunch = new Date("2019/11/02 13:00:00");
-  var dinner = new Date("2019/11/02 19:00:00");
-  var ramenChallenge = new Date("2019/11/03 00:00:00");
+  var dinner = new Date("2019/11/02 18:30:00");
+  var spicyRamen = new Date("2019/11/02 23:00:00");
+  var midnightSnack = new Date("2019/11/03 00:00:00");
   var breakfast2 = new Date("2019/11/03 09:00:00");
   var nowdate = new Date();
-  var timeList = [breakfast, lunch, dinner, ramenChallenge, breakfast2];
+  var timeList = [lunch, dinner, spicyRamen, midnightSnack, breakfast2];
   var foodList = [
-    "oatmeal, cereal, protein bars, and orange juice",
-    "Chipotle",
-    "Indian food",
-    "RAMEN",
-    "oatmeal, cereal, protein bars, and orange juice"
+    "Zweli's",
+    "Korean Food by Itaewon Grill",
+    "Spicy Ramen!!",
+    "McDonald's Nuggets!!",
+    "local food -> Nosh"
   ];
   var foodType = [
-    "Breakfast",
     "Lunch",
     "Dinner",
-    "The ramen challenge",
-    "Breakfast"
+    "Spicy Ramen Challenge",
+    "Midnight Snack",
+    "Sunday Breakfast"
   ];
   var foodTime = [
-    "*9:00 am*",
     "*1:00 pm*",
     "*7:00 pm*",
+    "*11:00 pm*",
     "*12:00 am*",
     "*9:00 am*"
   ];
@@ -455,14 +455,6 @@ function createSnackTimeString() {
     foodstring =
       "No upcoming meals planned, but check out the main atrium for leftovers - OR reach out to an organizer!";
   }
-
-  /* console.log("breakfast:" + breakfast);
-  console.log("nowdate:" + nowdate);
-  console.log(nowdate - breakfast);
-  var hi = new Date(nowdate - breakfast);
-  console.log(hi.getHours());
-  console.log(hi.getMinutes());
-  console.log(new Date()); */
 
   return foodstring;
 }
