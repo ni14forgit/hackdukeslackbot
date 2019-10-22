@@ -386,7 +386,7 @@ function sendFile(filename, title, channelid) {
 }
 
 function createSnackTimeString() {
-  var breakfast = new Date("2019/11/02 09:00:00");
+  var breakfast = new Date("2019/10/02 09:00:00");
   var lunch = new Date("2019/11/02 13:00:00");
   var dinner = new Date("2019/11/02 19:00:00");
   var ramenChallenge = new Date("2019/11/03 00:00:00");
