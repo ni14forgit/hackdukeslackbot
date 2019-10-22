@@ -25,14 +25,6 @@ const spotify = new Spotify({
   secret: spotify_client_secret
 });
 
-/* bot.on("start", () => {
-  const params = {
-    icon_emoji: ":smiley:"
-  };
-
-  bot.postMessageToChannel("general", "HAHA", params);
-}); */
-
 bot.on("message", msg => {
   //console.log(msg);
   switch (msg.type) {
@@ -94,21 +86,6 @@ function spotifyPOSThackduke(song_title, artist_title, channelid) {
   spotify
     .request(createTrackURL(song_title, artist_title))
     .then(function(data) {
-      //var botmessage = "Here are the top results: \n";
-      /* for (i = 0; i < 5; i++) {
-        var song = "Song - " + data["tracks"]["items"][i]["name"] + " by ";
-        var artist = "";
-        for (var word of data["tracks"]["items"][i]["artists"]) {
-          artist += word.name;
-          artist += ", ";
-        }
-        artist = artist.substring(0, artist.length - 2);
-        artist += "\n";
-        botmessage += song;
-        botmessage += artist;
-      } */
-      //console.log(botmessage);
-      //console.log(data["tracks"]["items"][0].uri);
       if (data["tracks"]["items"][0] === undefined) {
         sendMessage(
           "Unfortunately, we couldn't find your song on Spotify",
@@ -284,15 +261,15 @@ function decider(jsondata, userid, channelid) {
             var language_title = jsondata["languageName"][0].value;
             pretext = "A hacker is looking for help!";
             text =
-              "Hi sponsors! " +
+              "Hi mentors! " +
               answer.members[i].real_name +
               " would like some help with " +
               language_title +
               ". If any of you are interested, feel free to reach out to him/her to help with his/her hack!";
-            sendMessage(pretext, text, "#800080", "GLG1M60NS");
+            sendMessage(pretext, text, "#800080", "GPB2SAZLP");
             sendMessage(
               "",
-              "I just messaged the sponsors! Hopefully someone will reach out on Slack to help you out!",
+              "I just messaged the mentors! Hopefully someone will reach out on Slack to help you out!",
               "#800080",
               channelid
             );
