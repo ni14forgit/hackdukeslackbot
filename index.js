@@ -233,7 +233,7 @@ function decider(jsondata, userid, channelid) {
         }
         break;
       case "sponsors":
-        pretext = "These are our supporting sponsors!";
+        pretext = "Supporting sponsors that sent mentors!";
         text =
           "*Houzz:* Xin Tong, Jonathan Chu" +
           "\n *Capital One: * Priyansh Bhatnagar, K. Alnajar" +
@@ -317,10 +317,15 @@ function decider(jsondata, userid, channelid) {
       case "bathroom":
         pretext = "";
         text =
-          "Women's bathrooms are located at 1004, 2030, and 3981 in CIEMAS \n Men's bathrooms are located at 1004, 2030, and 3981 in CIEMAS";
+          "Bathrooms are centered on either side of Schiciano Auditorium on first floor of CIEMAS! \n There will be flyers on the upper floors to guide you to the nearest bathroom.";
         sendMessage(pretext, text, color, channelid);
         break;
-      //POTENTIALLY SEND A FILE INDICATING WHERE THE BATHROOMS ARE!
+      case "introduction":
+        pretext = "";
+        text =
+          "Hi! I'm KitKat! I'm here to answer questions you may have! (Meals, submissions, sponsors, and more! \n Try 'add Stronger by Kanye West' or 'I need help with Python'";
+        sendMessage(pretext, text, color, channelid);
+        break;
       default:
         pretext = "So sorry...";
         text =
