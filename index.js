@@ -192,6 +192,25 @@ function decider(jsondata, userid, channelid) {
   var text;
   var color = "#800080";
 
+  bot.getUsers().then(function(answer) {
+    for (i = 0; i < answer.members.length; i++) {
+      if (answer.members[i].id === userid) {
+        if (
+          answer.members[i].real_name.includes("Nishant") &&
+          answer.members[i].real_name.includes("Iyengar")
+        ) {
+          sendMessage(
+            "Sorry to inform you sir...",
+            "I do not respond to wack members who are PMing at Microsoft",
+            color,
+            channelid
+          );
+          return;
+        }
+      }
+    }
+  });
+
   if (jsondata.intent === undefined) {
     pretext = "So sorry...";
     text =
