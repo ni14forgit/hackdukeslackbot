@@ -235,12 +235,18 @@ function decider(jsondata, userid, channelid) {
       case "sponsors":
         pretext = "These are our supporting sponsors!";
         text =
-          "*Houzz:* Mimi Han, Marc Marrujo, Christopher Santos" +
-          "\n *Capital One: * Daniel Shull, Katie Mayfield" +
-          "\n *Appian: * Filler Name, Filler Name" +
-          "\n *JPMorgan Chase: * Filler Name, Filler Name" +
-          "\n *Duke Department: * Thank you Duke!" +
-          "\n *Spikeball, Insomnia Cookies, Peppered Popcorn*";
+          "*Houzz:* Xin Tong, Jonathan Chu" +
+          "\n *Capital One: * Priyansh Bhatnagar, K. Alnajar" +
+          "\n *Yext: * Jane Xu" +
+          "\n *Code For America: * Symonne Singleton" +
+          "\n *Appian: * Dylan Peters" +
+          "\n *Smartcar: * Helena Merk" +
+          "\n *Duke Departments: * Dr. Rebecca Steorts" +
+          "\n *IBM: * Johnnie Hernandez" +
+          "\n *Civis Analytics: * Erik Zimmer, Sara Rogers" +
+          "\n *Mastercard: * Jordan Burton" +
+          "\n *Airbnb * Bobby Wang" +
+          "\n *Juvo * Thomas Cowart";
         sendMessage(pretext, text, color, channelid);
         console.log("sponsor");
         break;
