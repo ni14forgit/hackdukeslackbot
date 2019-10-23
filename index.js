@@ -196,12 +196,12 @@ function decider(jsondata, userid, channelid) {
     for (i = 0; i < answer.members.length; i++) {
       if (answer.members[i].id === userid) {
         if (
-          answer.members[i].real_name.includes("Nishant") &&
-          answer.members[i].real_name.includes("Iyengar")
+          answer.members[i].real_name.includes("Chris") &&
+          answer.members[i].real_name.includes("Warren")
         ) {
           sendMessage(
             "Sorry to inform you sir...",
-            "I do not respond to wack members who are PMing at Microsoft",
+            "I do not respond to wack people who are PMing at Microsoft",
             color,
             channelid
           );
@@ -209,120 +209,120 @@ function decider(jsondata, userid, channelid) {
         }
       }
     }
-  });
 
-  if (jsondata.intent === undefined) {
-    pretext = "So sorry...";
-    text =
-      "I couldn't understand your request, please reach out to an organizer.";
-    sendMessage(pretext, text, color, channelid);
-    return;
-  }
-
-  switch (jsondata.intent[0].value) {
-    case "spotify":
-      if ("song_title" in jsondata && "artist_title" in jsondata) {
-        song_title = jsondata["song_title"][0].value;
-        artist_title = jsondata["artist_title"][0].value;
-
-        spotifyPOSThackduke(song_title, artist_title, channelid);
-      } else {
-        pretext = "Something went wrong!";
-        text =
-          "Make sure you typed the names of the song and artist correctly! <https://open.spotify.com/playlist/1Qj5m1UhNdY25CsUTNZBiH|Check out what songs other hackers contributed!>";
-        sendMessage(pretext, text, color, channelid);
-      }
-      break;
-    case "sponsors":
-      pretext = "These are our supporting sponsors!";
-      text =
-        "*Houzz:* Mimi Han, Marc Marrujo, Christopher Santos" +
-        "\n *Capital One: * Daniel Shull, Katie Mayfield" +
-        "\n *Appian: * Filler Name, Filler Name" +
-        "\n *JPMorgan Chase: * Filler Name, Filler Name" +
-        "\n *Duke Department: * Thank you Duke!" +
-        "\n *Spikeball, Insomnia Cookies, Peppered Popcorn*";
-      sendMessage(pretext, text, color, channelid);
-      console.log("sponsor");
-      break;
-    case "code_of_conduct":
-      pretext = "Be a good person!";
-      text =
-        "<https://static.mlh.io/docs/mlh-code-of-conduct.pdf|Code of Conduct>";
-      sendMessage(pretext, text, color, channelid);
-      console.log("code of conduct");
-      break;
-    case "help":
-      pretext = "What's wrong :(";
-      text = "Please reach out to an organizer for any assistance!";
-      sendMessage(pretext, text, color, channelid);
-      break;
-    case "submit":
-      pretext = "I'm so happy y'all completed your hackathon project!";
-      text =
-        "You can submit your amazing hackathon projects to https://hackduke.org/";
-      sendMessage(pretext, text, color, channelid);
-      console.log("submit");
-      break;
-    case "schedule":
-      sendFile("HackDuke-FAQs.pdf", "Here's our schedule!", channelid);
-      break;
-    case "finding_team":
-      pretext = "We can help you find a team!";
-      text =
-        "Go to our *team_finding* slack channel and you'll meet other amazing hackers!";
-      sendMessage(pretext, text, color, channelid);
-      break;
-    case "learning":
-      bot.getUsers().then(function(answer) {
-        for (i = 0; i < answer.members.length; i++) {
-          if (answer.members[i].id === userid) {
-            var language_title = jsondata["languageName"][0].value;
-            pretext = "A hacker is looking for help!";
-            text =
-              "Hi mentors! " +
-              answer.members[i].real_name +
-              " would like some help with " +
-              language_title +
-              ". If any of you are interested, feel free to reach out to him/her to help with his/her hack!";
-            sendMessage(pretext, text, "#800080", "GPB2SAZLP");
-            sendMessage(
-              "",
-              "I just messaged the mentors! Hopefully someone will reach out on Slack to help you out!",
-              "#800080",
-              channelid
-            );
-            return;
-          }
-        }
-      });
-      break;
-    case "map":
-      sendFile(
-        "map_of_duke.jpg",
-        "Here's what our campus looks like, but feel free to reach out to an organizer for directions!",
-        channelid
-      );
-      break;
-    case "snacks":
-      pretext = "Hackers need to eat too!";
-      text = createSnackTimeString();
-      sendMessage(pretext, text, color, channelid);
-      break;
-    case "bathroom":
-      pretext = "";
-      text =
-        "Women's bathrooms are located at 1004, 2030, and 3981 in CIEMAS \n Men's bathrooms are located at 1004, 2030, and 3981 in CIEMAS";
-      sendMessage(pretext, text, color, channelid);
-      break;
-    //POTENTIALLY SEND A FILE INDICATING WHERE THE BATHROOMS ARE!
-    default:
+    if (jsondata.intent === undefined) {
       pretext = "So sorry...";
       text =
         "I couldn't understand your request, please reach out to an organizer.";
       sendMessage(pretext, text, color, channelid);
-      break;
-  }
+      return;
+    }
+
+    switch (jsondata.intent[0].value) {
+      case "spotify":
+        if ("song_title" in jsondata && "artist_title" in jsondata) {
+          song_title = jsondata["song_title"][0].value;
+          artist_title = jsondata["artist_title"][0].value;
+
+          spotifyPOSThackduke(song_title, artist_title, channelid);
+        } else {
+          pretext = "Something went wrong!";
+          text =
+            "Make sure you typed the names of the song and artist correctly! <https://open.spotify.com/playlist/1Qj5m1UhNdY25CsUTNZBiH|Check out what songs other hackers contributed!>";
+          sendMessage(pretext, text, color, channelid);
+        }
+        break;
+      case "sponsors":
+        pretext = "These are our supporting sponsors!";
+        text =
+          "*Houzz:* Mimi Han, Marc Marrujo, Christopher Santos" +
+          "\n *Capital One: * Daniel Shull, Katie Mayfield" +
+          "\n *Appian: * Filler Name, Filler Name" +
+          "\n *JPMorgan Chase: * Filler Name, Filler Name" +
+          "\n *Duke Department: * Thank you Duke!" +
+          "\n *Spikeball, Insomnia Cookies, Peppered Popcorn*";
+        sendMessage(pretext, text, color, channelid);
+        console.log("sponsor");
+        break;
+      case "code_of_conduct":
+        pretext = "Be a good person!";
+        text =
+          "<https://static.mlh.io/docs/mlh-code-of-conduct.pdf|Code of Conduct>";
+        sendMessage(pretext, text, color, channelid);
+        console.log("code of conduct");
+        break;
+      case "help":
+        pretext = "What's wrong :(";
+        text = "Please reach out to an organizer for any assistance!";
+        sendMessage(pretext, text, color, channelid);
+        break;
+      case "submit":
+        pretext = "I'm so happy y'all completed your hackathon project!";
+        text =
+          "You can submit your amazing hackathon projects to https://hackduke.org/";
+        sendMessage(pretext, text, color, channelid);
+        console.log("submit");
+        break;
+      case "schedule":
+        sendFile("HackDuke-FAQs.pdf", "Here's our schedule!", channelid);
+        break;
+      case "finding_team":
+        pretext = "We can help you find a team!";
+        text =
+          "Go to our *team_finding* slack channel and you'll meet other amazing hackers!";
+        sendMessage(pretext, text, color, channelid);
+        break;
+      case "learning":
+        bot.getUsers().then(function(answer) {
+          for (i = 0; i < answer.members.length; i++) {
+            if (answer.members[i].id === userid) {
+              var language_title = jsondata["languageName"][0].value;
+              pretext = "A hacker is looking for help!";
+              text =
+                "Hi mentors! " +
+                answer.members[i].real_name +
+                " would like some help with " +
+                language_title +
+                ". If any of you are interested, feel free to reach out to him/her to help with his/her hack!";
+              sendMessage(pretext, text, "#800080", "GPB2SAZLP");
+              sendMessage(
+                "",
+                "I just messaged the mentors! Hopefully someone will reach out on Slack to help you out!",
+                "#800080",
+                channelid
+              );
+              return;
+            }
+          }
+        });
+        break;
+      case "map":
+        sendFile(
+          "map_of_duke.jpg",
+          "Here's what our campus looks like, but feel free to reach out to an organizer for directions!",
+          channelid
+        );
+        break;
+      case "snacks":
+        pretext = "Hackers need to eat too!";
+        text = createSnackTimeString();
+        sendMessage(pretext, text, color, channelid);
+        break;
+      case "bathroom":
+        pretext = "";
+        text =
+          "Women's bathrooms are located at 1004, 2030, and 3981 in CIEMAS \n Men's bathrooms are located at 1004, 2030, and 3981 in CIEMAS";
+        sendMessage(pretext, text, color, channelid);
+        break;
+      //POTENTIALLY SEND A FILE INDICATING WHERE THE BATHROOMS ARE!
+      default:
+        pretext = "So sorry...";
+        text =
+          "I couldn't understand your request, please reach out to an organizer.";
+        sendMessage(pretext, text, color, channelid);
+        break;
+    }
+  });
 }
 
 function sendMessage(mypretext, mytext, mycolor, channelID) {
