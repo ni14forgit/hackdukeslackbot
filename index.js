@@ -270,7 +270,7 @@ function decider(jsondata, userid, channelid) {
         console.log("submit");
         break;
       case "schedule":
-        sendFile("HackDuke-FAQs.pdf", "Here's our schedule!", channelid);
+        sendFile("HDSchedule", "Here's our schedule!", channelid);
         break;
       case "finding_team":
         pretext = "We can help you find a team!";
