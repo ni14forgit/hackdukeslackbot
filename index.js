@@ -201,7 +201,7 @@ function decider(jsondata, userid, channelid) {
         ) {
           sendMessage(
             "Sorry to inform you sir...",
-            "I do not respond to wack people who are PMing at Microsoft",
+            "We don't respond to Chris Warren.",
             color,
             channelid
           );
@@ -265,7 +265,7 @@ function decider(jsondata, userid, channelid) {
       case "submit":
         pretext = "I'm so happy y'all completed your hackathon project!";
         text =
-          "You can submit your amazing hackathon projects to https://hackduke.org/";
+          "You can submit your amazing hackathon projects to https://hackduke-2019.devpost.com/";
         sendMessage(pretext, text, color, channelid);
         console.log("submit");
         break;
@@ -275,7 +275,7 @@ function decider(jsondata, userid, channelid) {
       case "finding_team":
         pretext = "We can help you find a team!";
         text =
-          "Go to our *team_finding* slack channel and you'll meet other amazing hackers!";
+          "Go to our *team-finding* slack channel and you'll meet other amazing hackers!";
         sendMessage(pretext, text, color, channelid);
         break;
       case "learning":
@@ -289,7 +289,7 @@ function decider(jsondata, userid, channelid) {
                 answer.members[i].real_name +
                 " would like some help with " +
                 language_title +
-                ". If any of you are interested, feel free to reach out to him/her to help with his/her hack!";
+                ". If any of you are interested, feel free to reach out to them to help with their hack!";
               sendMessage(pretext, text, "#800080", "GPB2SAZLP");
               sendMessage(
                 "",
