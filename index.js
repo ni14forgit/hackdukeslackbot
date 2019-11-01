@@ -323,7 +323,7 @@ function decider(jsondata, userid, channelid) {
       case "introduction":
         pretext = "";
         text =
-          "Hi! I'm KitKat! I'm here to answer questions you may have! (Meals, submissions, sponsors, coding help, and more!)";
+          "Hi! I'm KitKat! I'm here to answer questions you may have! (Meals/snacks, submissions, sponsors, coding help, schedule, and more!)";
         sendMessage(pretext, text, color, channelid);
         break;
       default:
